@@ -63,7 +63,7 @@ class LottoGenerator extends HTMLElement {
     container.innerHTML = ballHtml + placeholders;
     
     button.disabled = this.isDrawing;
-    button.textContent = this.isDrawing ? 'Drawing...' : 'Draw Lucky Numbers';
+    button.textContent = this.isDrawing ? '추첨 중...' : '행운의 번호 추첨';
   }
 
   initialRender() {
@@ -185,7 +185,7 @@ class LottoGenerator extends HTMLElement {
           <div class="ball placeholder">?</div>
           <div class="ball placeholder">?</div>
         </div>
-        <button id="drawBtn">Draw Lucky Numbers</button>
+        <button id="drawBtn">행운의 번호 추첨</button>
       </div>
     `;
 
