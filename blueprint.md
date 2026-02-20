@@ -1,17 +1,22 @@
-# Coupang Partners API & AI Video Analysis Integration
+# Coupang Partners API Real Integration
 
 ## Overview
-This update transitions the app from a static simulation to a functional tool that integrates Coupang Partners API and prepares for AI Video Analysis.
+Transitions from simulated links to actual revenue-generating links by calling the Coupang Partners Open API.
 
-## Core Updates
-1. **API Credentials Management:** Added a settings panel to store Coupang Access Key, Secret Key, and AF ID.
-2. **Dynamic Search & Link Generation:** Instead of random links, the app will now attempt to search products via API (simulated for now, requiring server-side proxy).
-3. **Context-Aware Content:** Descriptions will now pull from the file name or metadata to ensure relevance to the uploaded video.
+## API Specification
+- **Endpoint:** `https://api-gateway.coupang.com/v2/providers/affiliate_open_api/apis/openapi/v1/products/search`
+- **Method:** `GET`
+- **Authentication:** HMAC-SHA256 signature in the `Authorization` header.
+- **Payload:** `keyword`, `limit=1`
 
-## Technical Requirements
-- **Coupang API:** Requires a server-side proxy (Firebase Functions or Node.js) because Coupang API does not support direct Client-side (CORS) requests.
-- **Vision API:** Integration point for OpenAI or Google Cloud Vision to identify products in video frames.
+## Implementation Details
+1. **Signature Helper:** Generates the required timestamp and HMAC signature using `SubtleCrypto`.
+2. **Search Logic:**
+   - Input: Product name from video file.
+   - Output: `trackingUrl` from Coupang API response.
+3. **CORS Handling:** Noted that direct browser calls may require a proxy or server-side implementation for production.
 
-## Next Steps
-- Implement UI for API Key input.
-- Refine product identification logic based on file names as a temporary context provider.
+## Current Plan
+1. Add `Crypto` utility to `main.js` for API signing.
+2. Update `startAnalysis` to fetch real data if API keys are present.
+3. Update result display to show real product data from Coupang.
