@@ -1,19 +1,15 @@
-# Coupang Partners API - CORS Fix & Proxy Integration
+# Coupang Partners API - Final Integration (Blog Reference)
 
 ## Overview
-Addressing the CORS issue that prevents direct browser-to-Coupang API calls.
+Refined the API call logic based on the user-provided Python reference. This ensures the signature and headers match Coupang's expected format precisely.
 
-## Problem
-Browsers block requests to `api-gateway.coupang.com` because the server does not return the required `Access-Control-Allow-Origin` headers for web-based clients.
+## Technical Refinements
+1. **Signature Message:** Now correctly concatenates `timestamp + method + path + query`.
+2. **Timestamp Format:** Updated to `YYMMDD'T'HHMMSS'Z'` in GMT/UTC.
+3. **Header Structure:** Changed the date key from `timestamp` to `signed-date`.
+4. **API Path:** Updated to the standard path provided in the reference.
 
-## Solution
-1. **CORS Proxy Integration:** Use `https://corsproxy.io/` to wrap API requests. This service forwards the request and adds the necessary CORS headers.
-2. **Proxy Settings:** Added a toggle in the settings panel to enable/disable the proxy (enabled by default for web environments).
-
-## Security Note
-While a public proxy works for prototypes, a dedicated server-side backend (Node.js/Firebase) is recommended for production to keep API Secret Keys fully protected.
-
-## Current Plan
-1. Update `fetchCoupangProduct` in `main.js` to use `corsproxy.io`.
-2. Add "Proxy Mode" toggle in the settings UI.
-3. Update connection test logic to account for proxy latency.
+## Features
+- **Accurate Signature:** Uses `SubtleCrypto` to match Python's `hmac` and `hashlib.sha256`.
+- **Enhanced Search:** Fetches the most relevant product based on the video filename.
+- **Split UI:** Maintains separate areas for Post (captions) and Comments (affiliate links + disclosure).
