@@ -1,22 +1,19 @@
-# Coupang Partners Threads Generator - Advanced Integration
+# Coupang Partners API - CORS Fix & Proxy Integration
 
 ## Overview
-A specialized tool for affiliate marketers to generate high-engagement content for Threads, featuring real-time Coupang API integration, connection testing, and separated content for posts/comments.
+Addressing the CORS issue that prevents direct browser-to-Coupang API calls.
 
-## New Features
-1. **API Connection Test:** A button in the settings to verify if the Access/Secret keys are valid by making a test call.
-2. **Accurate Product Linking:** Enhanced search logic to find the specific product from Coupang's database.
-3. **Split Content Generation:**
-    - **Main Post:** 3-line engaging text (MZ style).
-    - **Comment:** Affiliate link + mandatory disclosure statement.
-4. **Dual Copy Buttons:** Separate "Copy Post" and "Copy Comment" buttons for easy uploading.
+## Problem
+Browsers block requests to `api-gateway.coupang.com` because the server does not return the required `Access-Control-Allow-Origin` headers for web-based clients.
 
-## Technical Details
-- **Validation:** Uses the `search` API with a test keyword to verify credentials.
-- **Disclosure:** "이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다." automatically appended to comments.
-- **State Management:** Handles connection status (Valid/Invalid) and separated content strings.
+## Solution
+1. **CORS Proxy Integration:** Use `https://corsproxy.io/` to wrap API requests. This service forwards the request and adds the necessary CORS headers.
+2. **Proxy Settings:** Added a toggle in the settings panel to enable/disable the proxy (enabled by default for web environments).
+
+## Security Note
+While a public proxy works for prototypes, a dedicated server-side backend (Node.js/Firebase) is recommended for production to keep API Secret Keys fully protected.
 
 ## Current Plan
-1. Update `main.js` with `testConnection` logic.
-2. Modify UI to show two result sections and two copy buttons.
-3. Ensure the Korean disclosure is correctly formatted.
+1. Update `fetchCoupangProduct` in `main.js` to use `corsproxy.io`.
+2. Add "Proxy Mode" toggle in the settings UI.
+3. Update connection test logic to account for proxy latency.
