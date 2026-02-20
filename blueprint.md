@@ -1,28 +1,26 @@
-# Lotto Generator Blueprint
+# Threads Content Generator for Coupang Partners
 
 ## Overview
-A modern, visually stunning Lotto Number Generator built with framework-less web standards. It features animated transitions, a glassmorphism UI, and encapsulates functionality within a Web Component.
+A specialized tool for affiliate marketers to generate high-engagement content for Threads. It processes video uploads, identifies products, generates 3-line descriptions, and prepares Coupang Partners links.
 
 ## Project Outline
-- **Entry Point:** `index.html`
-- **Logic:** `main.js` (Web Components, ES Modules)
-- **Styling:** `style.css` (Baseline CSS: `oklch`, container queries, `:has()`, logical properties)
-- **Component:** `<lotto-generator>`
-
-### Visual Design
-- **Expressive Typography:** Bold headings using high-contrast font sizes.
-- **Color Palette:** Vibrant `oklch` colors for different number ranges.
-- **Texture:** Subtle noise background for a premium feel.
-- **Interactivity:** Buttons with glow effects and "lifted" card shadows.
-
-### Features
-- Animated number generation.
-- Unique number validation (6 numbers from 1 to 45).
-- Sorted results for better readability.
-- Mobile-responsive layout.
+- **Target Platform:** Threads (optimized for short, engaging text).
+- **Core Feature 1:** Video Upload & Preview.
+- **Core Feature 2:** AI-driven (Simulated) Product Identification & Description Generation.
+- **Core Feature 3:** Coupang Partners Link Integration (Placeholder for API).
+- **Visual Design:** Clean, modern "Glassmorphism" UI with deep shadows and vibrant accents.
 
 ## Current Plan & Steps
-1. **Scaffold HTML:** Update `index.html` to include the `<lotto-generator>` component.
-2. **Global Styles:** Add a premium background and typography settings in `style.css`.
-3. **Core Logic & Component:** Implement the `<lotto-generator>` Web Component in `main.js`.
-4. **Validation:** Ensure the generator works flawlessly and is visually polished.
+1. **Scaffold New UI:** Update `index.html` to focus on the Content Generator.
+2. **Enhanced Styling:** Add styles for video previews, progress bars, and result cards.
+3. **Logic Implementation:** 
+    - Handle video file selection.
+    - Simulate "AI Video Analysis" with a professional progress indicator.
+    - Generate 3-line descriptions based on the detected product.
+    - Provide a placeholder for the Coupang search result.
+4. **Localization:** Keep the UI in Korean as requested.
+
+## Technical Details
+- **Video Processing:** Uses browser-native `<video>` for preview.
+- **Styling:** `oklch` colors, `:has()` for state management, CSS Variables for theming.
+- **Animation:** GSAP-like smooth transitions using CSS Animations.
