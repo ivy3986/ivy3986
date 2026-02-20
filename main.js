@@ -46,9 +46,9 @@ class ContentGenerator extends HTMLElement {
     this.result = {
       productName: '프리미엄 무선 소음 제거 헤드폰',
       description: [
-        '✨ 이 제품 하나로 삶의 질이 수직 상승합니다!',
-        '🎧 압도적인 노이즈 캔슬링으로 나만의 온전한 공간을 만드세요.',
-        '🚀 지금 바로 경험해보세요, 당신이 찾던 바로 그 제품입니다.'
+        '🎧 이거 진짜 써본 사람만 앎... 노캔 성능 실화냐? 🤯',
+        '슥- 끼는 순간 세상이랑 단절됨 ㅋㅋ 나만의 힐링 공간 완성! ✨',
+        '삶의 질 수직 상승템이라 이건 안 사면 무조건 손해임 ㅠㅠ 🚀'
       ],
       link: 'https://link.coupang.com/a/random-affiliate-link'
     };
